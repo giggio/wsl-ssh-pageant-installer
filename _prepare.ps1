@@ -1,4 +1,4 @@
-. "$PSScriptRoot\vars.ps1"
+. "$PSScriptRoot\_vars.ps1"
 if (!(Test-Path "$PSScriptRoot\bin" -PathType Container)) {
     mkdir $binDir
 }

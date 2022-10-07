@@ -1,6 +1,6 @@
-. "$PSScriptRoot\vars.ps1"
+. "$PSScriptRoot\_vars.ps1"
 if ($null -eq (Get-ScheduledTask $actionName -ErrorAction SilentlyContinue)) {
-    . "$PSScriptRoot\prepare.ps1"
+    . "$PSScriptRoot\_prepare.ps1"
     $action = New-ScheduledTaskAction -Execute "$guiExecutable" -Argument '--winssh ssh-pageant --systray' -WorkingDirectory "$PSScriptRoot"
     $trigger = New-ScheduledTaskTrigger -AtLogOn -User $(whoami)
     $settings = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -Compatibility Win8 -MultipleInstances IgnoreNew -StartWhenAvailable -DontStopIfGoingOnBatteries -ExecutionTimeLimit (New-TimeSpan -Seconds 0)
