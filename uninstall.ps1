@@ -1,5 +1,6 @@
 . "$PSScriptRoot\vars.ps1"
-if ($null -ne (Get-Service wsl-ssh-pageant -ErrorAction SilentlyContinue)) {
+$task = Get-ScheduledTask -TaskName $actionName -ErrorAction SilentlyContinue
+if ($null -ne $task) {
     . "$PSScriptRoot\stop.ps1"
-    . $installer uninstall .\wsl-ssh-pageant.xml
+    Unregister-ScheduledTask -InputObject $task -Confirm:$false
 }

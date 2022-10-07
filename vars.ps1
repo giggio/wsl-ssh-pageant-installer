@@ -1,3 +1,4 @@
+$actionName = 'wsl-ssh-pageant'
 $binDir = "$PSScriptRoot\bin"
-$installer = "$binDir\winsw.exe"
-$executable = "$binDir\wsl-ssh-pageant.exe"
+$cliExecutable = "$binDir\wsl-ssh-pageant.exe"
+$guiExecutable = "$binDir\wsl-ssh-pageant-gui.exe"

@@ -1,4 +1,4 @@
-if ((Get-Service wsl-ssh-pageant -ErrorAction SilentlyContinue).Status -eq 'Running') {
-    . "$PSScriptRoot\prepare.ps1"
-    . $installer stop .\wsl-ssh-pageant.xml
+. "$PSScriptRoot\vars.ps1"
+if ((Get-ScheduledTask wsl-ssh-pageant -ErrorAction SilentlyContinue).State -eq 'Running') {
+    Stop-ScheduledTask -TaskPath $env:USERNAME wsl-ssh-pageant
 }

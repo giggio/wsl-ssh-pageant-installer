@@ -1,6 +1,6 @@
-if ($null -eq (Get-Service wsl-ssh-pageant -ErrorAction SilentlyContinue)) {
-    Write-Error "Service is not installed."
+. "$PSScriptRoot\vars.ps1"
+if ($null -eq (Get-ScheduledTask $actionName -ErrorAction SilentlyContinue)) {
+    Write-Error "Task is not installed."
 } else {
-    . "$PSScriptRoot\prepare.ps1"
-    . $installer start .\wsl-ssh-pageant.xml
+    Start-ScheduledTask -TaskPath $env:USERNAME wsl-ssh-pageant
 }
